@@ -27,9 +27,9 @@ public class GenerateWordlist {
 
         //Seleciona cada lista de forma recursiva, verificando se o elemento ja foi add a lista principal
         for (String elem : forSelect) {
-            List<String> newListA = without(listA, elem);
+            List<String> newListA = noDuplicates(listA, elem);
             int newNumA = numA - (listA.contains(elem) ? 1 : 0);
-            List<String> newListB = without(listB, elem);
+            List<String> newListB = noDuplicates(listB, elem);
             int newNumB = numB - (listB.contains(elem) ? 1 : 0);
 
             //adiciona todos os elemetos ao array de resultado final
@@ -45,7 +45,7 @@ public class GenerateWordlist {
     }
 
 
-    private static List<String> without(List<String> list, String elem) {
+    private static List<String> noDuplicates(List<String> list, String elem) {
         return list.stream().filter(e -> e != elem).collect(toList());
     }
 }
